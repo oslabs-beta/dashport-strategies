@@ -43,8 +43,7 @@ export default class GoogleStrategy {
    */
   constructor (options: Options) {
     if (!options.client_id || !options.redirect_uri || !options.response_type || !options.scope || !options.client_secret) {
-      /////////////////////////////////
-      throw new Error('Missing required arguments');
+      throw new Error('ERROR in TemplateStrategy constructor: Missing required arguments');
     }
 
     this.options = options;
