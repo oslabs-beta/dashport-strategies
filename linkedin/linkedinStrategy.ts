@@ -28,8 +28,7 @@ export default class LinkedInStrategy {
     }
 
     this.options = options;
-    //////////////////////////
-    let paramArray: string[][] = Object.entries(options);
+    const paramArray: string[][] = Object.entries(options);
     let paramString: string = '';
     
     for (let i = 0; i < paramArray.length; i++) {
