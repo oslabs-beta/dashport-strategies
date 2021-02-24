@@ -32,7 +32,7 @@ export default class GitHubStrategy {
     this.options = options; 
 
     // PRE STEP 1: 
-      // Constructs the second half of the authURL for your first endpoint from the info you put into 'options'
+      // Constructs the second half of the authURL for developer's first endpoint from the info put into 'options'
     this.uriFromParams = this.constructURI(this.options);
   } 
 
