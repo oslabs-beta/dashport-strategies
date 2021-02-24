@@ -70,7 +70,7 @@ export interface TokenData {
   access_token: string;
   expires_in?: number;
   scope?: string;
-  token_type: string;
+  token_type?: string;
   id_token?: string;
 }
 
@@ -79,13 +79,4 @@ export interface AuthData {
   userInfo?: UserProfile;
 }
 
-// export interface FetchOptions {
-//   method?:string; 
-//   mode?:string;
-//   cache?:string; 
-//   credentials?: string;
-//   headers?: any;
-//   redirect?:string; 
-//   referrerPolicy?:string; 
-//   body?:string; 
-// }
+

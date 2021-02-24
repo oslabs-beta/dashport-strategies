@@ -1,4 +1,4 @@
-import { OakContext, Options, AuthData, TokenData } from './types.ts';
+import { OakContext, Options, AuthData, TokenData } from '../types.ts';
 
 /**
  * Creates an instance of `GoogleStrategy`.
