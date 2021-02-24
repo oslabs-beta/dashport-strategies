@@ -61,8 +61,8 @@ export default class LocalStrategy {
       userInfo = await this._authorize(userInfo);
 
       return { userInfo };
-    } catch {
-      return new Error('ERROR in router: No Username or Password submitted for authorization');
+    } catch(err) {
+      return new Error(`ERROR in router: Unable to authorize - ${err}`);
     }
   }
 }
