@@ -15,9 +15,9 @@ export default class GitHubStrategy {
   name: string = 'github'
   options: Options;
   uriFromParams: string;
-  authURL: string;
-  tokenURL: string;
-  authDataURL: string;
+  authURL: string = 'https://github.com/login/oauth/authorize?';
+  tokenURL: string = 'https://github.com/login/oauth/access_token?';
+  authDataURL: string = 'https://api.github.com/user?';
   /**
    * @constructor
    * @param {Object} options
@@ -30,20 +30,9 @@ export default class GitHubStrategy {
     }
 
     this.options = options; 
-    //////////////////////////////////////////////
-    // ACTION NEEDED:
-      // input url for first endpoint from service below: 
-    this.authURL = 'https://github.com/login/oauth/authorize?'
-      // add the url to exchange the auth code for a token here
-    this.tokenURL = 'https://github.com/login/oauth/access_token?'
-      // add the url to exchange the token for auth data here
-    this.authDataURL = 'https://api.github.com/user?'
 
     // PRE STEP 1: 
       // Constructs the second half of the authURL for your first endpoint from the info you put into 'options'
-    // ACTION NEEDED: 
-      // If there are any variables in options that aren't needed for your first endpoint (but will be needed later), 
-      // add them as an array of strings (even if there's only 1 item)
     this.uriFromParams = this.constructURI(this.options);
   } 
 
