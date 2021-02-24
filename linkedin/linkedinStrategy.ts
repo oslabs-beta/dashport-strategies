@@ -1,7 +1,5 @@
 import { OakContext, Options, AuthData, TokenData } from '../types.ts';
 /**
- * 788zz8dnnxjo4s
- * FHhQQW3BaNQCFilA
  * 
  * Creates an instance of `LinkedInStrategy`.
  * 
