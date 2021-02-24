@@ -18,9 +18,9 @@ export default class SpotifyStrategy {
   name: string = 'spotify'
   options: Options;
   uriFromParams: string;
-  authURL: string;
-  tokenURL: string;
-  authDataURL: string;
+  authURL: string = 'https://accounts.spotify.com/authorize?';
+  tokenURL: string = 'https://accounts.spotify.com/api/token?';
+  authDataURL: string = 'https://api.spotify.com/v1/me?';
   /**
    * @constructor
    * @param {Object} options
@@ -32,13 +32,6 @@ export default class SpotifyStrategy {
     }
 
     this.options = options;
-    //////////////////////////////////////
-      // add the url for your first endpoint here
-    this.authURL = 'https://accounts.spotify.com/authorize?'
-      // add the url to exchange the auth code for a token here
-    this.tokenURL = 'https://accounts.spotify.com/api/token?'
-      // add the url to exchange the token for auth data here
-    this.authDataURL = 'https://api.spotify.com/v1/me?'
 
     // PRE STEP 1: 
       // Constructs the second half of the authURL for developer's first endpoint from the info put into 'options'
