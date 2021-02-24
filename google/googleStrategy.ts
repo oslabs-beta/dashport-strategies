@@ -71,7 +71,7 @@ export default class GoogleStrategy {
     // GO_Step 1 Request Permission
     if (!ctx.request.url.search) return await this.authorize(ctx, next);
     // GO_Step 2-3 Exchange code for Token
-    if (ctx.request.url.search.slice(1, 5)=== 'code') return this.getAuthToken(ctx, next);
+    if (ctx.request.url.search.slice(1, 5) === 'code') return this.getAuthToken(ctx, next);
   }
   
   // sends the programatically constructed uri to Google's oauth 2.0 server (step 2)
