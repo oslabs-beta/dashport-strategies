@@ -1,5 +1,5 @@
 import { OakContext, Options, AuthData, TokenData} from '../types.ts';
-import { Base64 } from '../dashport/deps.ts';
+import { Base64 } from 'https://deno.land/x/bb64/mod.ts';
 
 /**
  * Creates an instance of `SpotifyStrategy`.

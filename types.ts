@@ -52,31 +52,17 @@ export interface UserProfile {
  */
 export interface Options {
   client_id: string;
-  redirect_uri: string;
-  response_type?: string;
-  scope?: string;
   client_secret: string;
-  access_type?: string;
-  state?: string;
-  included_granted_scopes?: string;
-  login_hint?: string;
-  prompt?: string;
-  grant_type?: string;
-  allow_signup?: string;
-  code?: string;
+  redirect_uri: string;
+  [option: string]: string;
 }
 
 export interface TokenData {
   access_token: string;
-  expires_in?: number;
-  scope?: string;
-  token_type?: string;
-  id_token?: string;
+  [options: string]: string;
 }
 
 export interface AuthData {
   tokenData: TokenData;
   userInfo?: UserProfile;
 }
-
-
