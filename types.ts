@@ -64,5 +64,5 @@ export interface TokenData {
  */
 export interface AuthData {
   tokenData: TokenData;
-  userInfo?: UserProfile;
+  userInfo: UserProfile;
 }
