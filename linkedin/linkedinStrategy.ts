@@ -33,7 +33,7 @@ export default class LinkedInStrategy {
     for(let i = 0; i < paramArray.length; i++){
       let [key, value] = paramArray[i];
       if(key === 'client_secret' || key === 'grant_type'){
-        break;
+        continue;
       }
       paramString += (key + '=');
       if(i < paramArray.length - 1){
@@ -48,6 +48,7 @@ export default class LinkedInStrategy {
   }
 
   async router(ctx:OakContext, next:Function) {
+    console.log('linked51', ctx.request.url.search)
     if(!ctx.request.url.search) return await this.authorize(ctx, next);
     if(ctx.request.url.search.slice(1, 5)=== 'code') return this.getAuthToken(ctx, next);
   }
