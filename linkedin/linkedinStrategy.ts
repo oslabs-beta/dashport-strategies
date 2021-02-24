@@ -117,8 +117,7 @@ export default class LinkedInStrategy {
 
       return authData;
     } catch(err) {
-      /////////////////////////////////
-      console.log('getAuthData error on line 153 of LinkedIn', err);
+      return new Error(`ERROR in getAuthData: Unable to obtain auth data - ${err}`);
     }
   }
 
