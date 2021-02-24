@@ -33,7 +33,7 @@ export default class LinkedInStrategy {
     for(let i = 0; i < paramArray.length; i++){
       let [key, value] = paramArray[i];
       if(key === 'client_secret' || key === 'grant_type'){
-        break;
+        continue;
       }
       paramString += (key + '=');
       if(i < paramArray.length - 1){
