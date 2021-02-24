@@ -148,8 +148,7 @@ export default class SpotifyStrategy {
       // PASSES TOKEN ON TO STEP 4
       return this.getAuthData(data);
     } catch(err) {
-      ///////////////////////////////
-      console.log('YOUR ERROR MESSAGE'+ err)
+      return new Error(`ERROR in getAuthToken: Unable to obtain token - ${err}`);
     }
   }
 
