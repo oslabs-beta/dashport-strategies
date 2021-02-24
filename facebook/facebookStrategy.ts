@@ -154,8 +154,7 @@ export default class FacebookStrategy {
 
       return this.getAuthData(data);
     } catch(err) {
-      //////////////////////////////////////////////////////////
-      console.log('getAuthToken error on line 118 of Facebook'+ err)
+      return new Error(`ERROR in getAuthToken: Unable to obtain token - ${err}`);
     }
   }
 
