@@ -60,7 +60,7 @@ export default class LocalStrategy {
       let userInfo: UserProfile = await ctx.request.body(true).value;
       userInfo = await this._authorize(userInfo);
 
-      return {userInfo: userInfo};
+      return { userInfo };
     } catch {
       return new Error('ERROR in router: No Username or Password submitted for authorization');
     }
