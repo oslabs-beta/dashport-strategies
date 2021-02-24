@@ -190,8 +190,7 @@ export default class FacebookStrategy {
 
       return authData;
     } catch(err) {
-      ////////////////////////////////////////////////////
-      console.log('getAuthData error on line 153 of Facebook', err);
+      return new Error(`ERROR in getAuthData: Unable to obtain auth data - ${err}`);
     }
   }
 }
