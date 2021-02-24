@@ -111,8 +111,7 @@ export default class GoogleStrategy {
 
       return this.getAuthData(data);
     } catch(err) {
-      ///////////////////////////////////////////////
-      console.log('getAuthToken error on line 133 of scratchGoogle'+ err)
+      return new Error(`ERROR in getAuthToken: Unable to obtain token - ${err}`);
     }
   }
 
