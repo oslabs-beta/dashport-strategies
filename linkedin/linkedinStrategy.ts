@@ -92,8 +92,11 @@ export default class LinkedInStrategy {
       tokenData: {
         access_token: parsed.access_token,
         expires_in: parsed.expires_in,
+      },
+      userInfo: {
+        provider: '',
+        providerUserId: ''
       }
-      ////////////////////////////
     };
     const options: any = {
       headers: { 'Authorization': 'Bearer '+ parsed.access_token }
