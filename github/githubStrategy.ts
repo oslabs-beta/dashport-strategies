@@ -109,8 +109,6 @@ export default class GitHubStrategy {
       return new Error('ERROR in getAuthToken: Received an error from auth token code request.');
     }
 
-    // ACTION REQUIRED: verify that this function works for the format of the response received. uncomment the line below to test:
-      // console.log('AUTH RESPONSE:', OGURI);
     // splits the string at the '=,' storing the first part in URI1[0] and the part we want in URI1[1]
     let URI1: string[] = OGURI.split('=');
     // splits the string at the ampersand(&), storing the string with the access_token in URI2[0] 
@@ -142,8 +140,9 @@ export default class GitHubStrategy {
       let data: any = await fetch('https://github.com/login/oauth/access_token', options);
       data = await data.json();
 
-      //////////////////////////////
-      if (data.type === 'oAuthException') return console.log('token request threw oauth exception')
+      if (data.type === 'oAuthException') {
+        return new Error('ERROR in getAuthToken: Token request threw OAuth exception.');
+      }
 
       // PASSES TOKEN ON TO STEP 4
       return this.getAuthData(data);
