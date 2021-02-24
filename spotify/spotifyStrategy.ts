@@ -162,8 +162,11 @@ export default class SpotifyStrategy {
         scope: parsed.scope,
         expires_in: parsed.expires_in,
         refresh_token: parsed.refresh_token
+      },
+      userInfo: {
+        provider: '',
+        providerUserId: ''
       }
-      //////////////////////////////
     }
 
     // STEP 4.5: request user info
