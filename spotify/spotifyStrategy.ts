@@ -142,8 +142,7 @@ export default class SpotifyStrategy {
       data = await data.json();
 
       if (data.type === 'oAuthException') {
-        /////////////////////////////////
-        return console.log('token request threw oauth exception')
+        return new Error('ERROR in getAuthToken: Token request threw OAuth exception.');
       }
 
       // PASSES TOKEN ON TO STEP 4
