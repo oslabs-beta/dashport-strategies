@@ -84,10 +84,9 @@ export default class GoogleStrategy {
     const OGURI: string = ctx.request.url.search;
 
     if (OGURI.includes('error')) {
-      ////////////////////////////////////////
-      // do error handling
-      console.log('broke the code again');
+      return new Error('ERROR in getAuthToken: Received an error from auth token code request.');
     }
+
     // splits the string at the =, storing the first part in URI1[0] and the part we want in URI1[1]
     let URI1: string[] = OGURI.split('=');
     // splits the string at the ampersand(&), storing the string with the access_token in URI2[0] 
