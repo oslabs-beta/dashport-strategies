@@ -56,10 +56,13 @@ export default class LocalStrategy {
 
   async router(ctx: OakContext, next: Function) {
     // GO_Step 1 Request Permission
-    let userInfo: UserProfile = await ctx.request.body(true).value;
-    userInfo = await this._authorize(userInfo);
+    try {
+      let userInfo: UserProfile = await ctx.request.body(true).value;
+      userInfo = await this._authorize(userInfo);
 
-    return {userInfo: userInfo};
-    // return new Error("No Username or Password submitted for authorization");
+      return {userInfo: userInfo};
+    } catch {
+      return new Error('ERROR in router: No Username or Password submitted for authorization');
+    }
   }
 }
