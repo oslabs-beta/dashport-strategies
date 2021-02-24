@@ -5,7 +5,7 @@ import { OakContext, Options, AuthData, TokenData } from '../types.ts';
  *
  * * Options:
  *
- *   - `clientID`: string                 identifies client to service provider - Required
+ *   - `clientID`: string                 Required
  *   - redirect_uri: string               Required
  *   - response_type: string              Required
  *   - scope: string                      Required
@@ -43,6 +43,7 @@ export default class GoogleStrategy {
    */
   constructor (options: Options) {
     if (!options.client_id || !options.redirect_uri || !options.response_type || !options.scope || !options.client_secret) {
+      /////////////////////////////////
       throw new Error('Missing required arguments');
     }
 
@@ -50,6 +51,7 @@ export default class GoogleStrategy {
 
     // preStep1 request permission 
     // CONSTRUCTS THE REDIRECT URI FROM THE PARAMETERS PROVIDED
+    ///////////////////////////////////////
     let paramArray: string[][] = Object.entries(options);
     let paramString: string = '';
 
@@ -63,18 +65,15 @@ export default class GoogleStrategy {
       if (i < paramArray.length - 1) paramString += (value + '&');
       else paramString += value;
     }
-//       if(paramString[paramString.length - 1] === '&'){
-//       paramString = paramString.slice(0, -1);
-//     }
 
     this.uriFromParams = paramString;
   }
 
   async router(ctx: OakContext, next: Function) {
     // GO_Step 1 Request Permission
-    if(!ctx.request.url.search) return await this.authorize(ctx, next);
+    if (!ctx.request.url.search) return await this.authorize(ctx, next);
     // GO_Step 2-3 Exchange code for Token
-    if(ctx.request.url.search.slice(1, 5)=== 'code') return this.getAuthToken(ctx, next);
+    if (ctx.request.url.search.slice(1, 5)=== 'code') return this.getAuthToken(ctx, next);
   }
   
   // sends the programatically constructed uri to Google's oauth 2.0 server (step 2)
@@ -87,6 +86,7 @@ export default class GoogleStrategy {
     const OGURI: string = ctx.request.url.search;
 
     if (OGURI.includes('error')) {
+      ////////////////////////////////////////
       // do error handling
       console.log('broke the code again');
     }
@@ -111,8 +111,10 @@ export default class GoogleStrategy {
     try {
       let data: any = await fetch('https://oauth2.googleapis.com/token', options);
       data = await data.json();
+
       return this.getAuthData(data);
     } catch(err) {
+      ///////////////////////////////////////////////
       console.log('getAuthToken error on line 133 of scratchGoogle'+ err)
     }
   }
@@ -126,10 +128,12 @@ export default class GoogleStrategy {
         token_type: parsed.token_type,
         id_token: parsed.id_token
       }
+      //////////////////////////////////////
     };
     const options: any = {
       headers: { 'Authorization': 'Bearer '+ parsed.access_token }
     };
+
     try {
       let data: any = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', options);
       data = await data.json();
@@ -147,6 +151,7 @@ export default class GoogleStrategy {
 
       return authData;
     } catch(err) {
+      ////////////////////////////////////////
       console.log('getAuthData error on line 153 of scratchGoogle', err);
     }
   }
