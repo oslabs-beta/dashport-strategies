@@ -189,8 +189,7 @@ export default class SpotifyStrategy {
 
       return authData;
     } catch(err) {
-      ////////////////////////////////////
-      console.log('getAuthData fetch error', err);
+      return new Error(`ERROR in getAuthData: Unable to obtain auth data - ${err}`);
     }
   }
 }
