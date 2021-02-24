@@ -17,7 +17,7 @@ import { OakContext, UserProfile } from '../types.ts';
  *
  * Examples:
  * 
- *     dashport.use(new GoogleStrategy({
+ *     dashport.use(new LocalStrategy({
  *         authorizationURL: 'https://www.example.com/oauth2/authorize',
  *         tokenURL: 'https://www.example.com/oauth2/token',
  *         clientID: '123-456-789',
