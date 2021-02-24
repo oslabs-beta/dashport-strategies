@@ -82,8 +82,7 @@ export default class LinkedInStrategy {
 
       return this.getAuthData(data);
     } catch(err) {
-      //////////////////////////////////////////
-      console.log('error: line 141 of scratchGoogle'+ err)
+      return new Error(`ERROR in getAuthToken: Unable to obtain token - ${err}`);
     }
   }
 
