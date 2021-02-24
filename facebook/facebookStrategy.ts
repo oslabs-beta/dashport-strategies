@@ -106,9 +106,9 @@ export default class FacebookStrategy {
   // ENTRY POINT
   async router(ctx: OakContext, next: Function) {
     // GO_Step 2 Request Permission
-    if(!ctx.request.url.search) return await this.authorize(ctx, next);
+    if (!ctx.request.url.search) return await this.authorize(ctx, next);
     // GO_Step 4 Exchange code for Token
-    if(ctx.request.url.search.slice(1, 5)=== 'code') return this.getAuthToken(ctx, next);
+    if (ctx.request.url.search.slice(1, 5)=== 'code') return this.getAuthToken(ctx, next);
   }
   
   // STEP 2: sends the programatically constructed uri to fb's oauth 2.0 server
