@@ -26,10 +26,9 @@ export default class GitHubStrategy {
   constructor (options: Options) {
     // customize required/desired field for the first redirect
     if (!options.client_id || !options.redirect_uri || !options.client_secret) {
-      //////////////////////////////////////////////////
-      throw new Error('Mssing Required arguments');
+      throw new Error('ERROR in GitHubStrategy constructor: Missing required arguments');
     }
-    
+
     this.options = options; 
     //////////////////////////////////////////////
     // ACTION NEEDED:
