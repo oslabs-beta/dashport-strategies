@@ -147,8 +147,7 @@ export default class GitHubStrategy {
       // PASSES TOKEN ON TO STEP 4
       return this.getAuthData(data);
     } catch(err) {
-      ////////////////////////////////////
-      // console.log('2.3 Line 207 Fetch Req For Token Error MESSAGE : '+ err)
+      return new Error(`ERROR in getAuthToken: Unable to obtain token - ${err}`);
     }
   }
 
