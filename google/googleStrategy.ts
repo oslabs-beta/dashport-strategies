@@ -123,8 +123,11 @@ export default class GoogleStrategy {
         scope: parsed.scope,
         token_type: parsed.token_type,
         id_token: parsed.id_token
+      },
+      userInfo: {
+        provider: '',
+        providerUserId: ''
       }
-      //////////////////////////////////////
     };
     const options: any = {
       headers: { 'Authorization': 'Bearer '+ parsed.access_token }
