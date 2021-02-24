@@ -138,7 +138,7 @@ export default class GoogleStrategy {
       data = await data.json();
 
       authData.userInfo = {
-        provider: 'google',
+        provider: this.name,
         providerUserId: data.id,
         displayName: data.name,
         name: {
