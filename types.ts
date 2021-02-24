@@ -40,15 +40,9 @@ export interface UserProfile {
 }
 
 /**
- * 
- * client_id: string                 identifies client to service provider - Required
- *   - client_secret: string              Required
- *   - redirect_uri: string               Required
- *   - state: string                      Required
- *   - response_type: string              O
- *   - scope: string
- * 
- * Options that should be specified by the developer when adding
+ * At the bare minimum, OAuth 2.0 providers will require a client ID, client
+ * secret, and redirect URI. The remaining options depend on the OAuth 2.0
+ * provider, such as scope
  */
 export interface Options {
   client_id: string;
@@ -57,12 +51,18 @@ export interface Options {
   [option: string]: string;
 }
 
+/**
+ * All OAuth 2.0 providers will provide access tokens
+ */
 export interface TokenData {
   access_token: string;
   [options: string]: string;
 }
 
+/**
+ * The form the information from strategies should come back in
+ */
 export interface AuthData {
   tokenData: TokenData;
-  userInfo?: UserProfile;
+  userInfo: UserProfile;
 }
