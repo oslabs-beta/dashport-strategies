@@ -50,8 +50,7 @@ export default class GoogleStrategy {
 
     // preStep1 request permission 
     // CONSTRUCTS THE REDIRECT URI FROM THE PARAMETERS PROVIDED
-    ///////////////////////////////////////
-    let paramArray: string[][] = Object.entries(options);
+    const paramArray: string[][] = Object.entries(options);
     let paramString: string = '';
 
     for (let i = 0; i < paramArray.length; i++) {
