@@ -148,8 +148,9 @@ export default class FacebookStrategy {
       let data: any = await fetch(this.tokenURL+this.constructURI(tokenOptions));
       data = await data.json();
 
-      //////////////////////////////////////////////////////////
-      if (data.type === 'oAuthException') return console.log('oauth exception fb 116');
+      if (data.type === 'oAuthException') {
+        return new Error('ERROR in getAuthToken: Token request threw OAuth exception.');
+      }
 
       return this.getAuthData(data);
     } catch(err) {
