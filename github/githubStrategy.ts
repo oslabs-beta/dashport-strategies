@@ -154,9 +154,6 @@ export default class GitHubStrategy {
   // STEP 4 get the access token from the returned data
   // STEP 4.5 exchange access token for user info
   async getAuthData(parsed: TokenData){ 
-    // ACTION REQUIRED: 
-      // fill in the fields for tokenData based on the token obj obtained in the last step
-      // authData is what is going to be passed back to dashport's authenticate method
     const authData: AuthData = {
       tokenData: {
         access_token: parsed.access_token,
@@ -170,9 +167,6 @@ export default class GitHubStrategy {
     }
 
     // STEP 4.5: request user info
-    // ACTION REQUIRED: 
-      // fill in the fields for auth options with the information required by requested OAuth service
-      // authOptions constructs the uri for the final fetch request
     try {
       const authOptions: any = {
         headers: {
@@ -182,8 +176,6 @@ export default class GitHubStrategy {
       let data: any = await fetch('https://api.github.com/user', authOptions);
       data = await data.json();
 
-      // ACTION REQUIRED:
-        // Add any data to pass back to dashport's authenticate method here
       authData.userInfo = {
         provider: this.name,
         providerUserId: data.id,
@@ -196,9 +188,7 @@ export default class GitHubStrategy {
 
       return authData;
     } catch(err) {
-      //////////////////////////////////////////////////
-      console.log('3.4 L.252 getAuthData fetch error', err);
+      return new Error(`ERROR in getAuthData: Unable to obtain auth data - ${err}`);
     }
   }
 }
-
