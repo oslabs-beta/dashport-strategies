@@ -28,8 +28,7 @@ export default class SpotifyStrategy {
    */
   constructor (options: Options) {
     if (!options.client_id || !options.redirect_uri || !options.state || !options.client_secret) {
-      //////////////////////////////////
-      throw new Error('Missing required arguments');
+      throw new Error('ERROR in SpotifyStrategy constructor: Missing required arguments');
     }
 
     this.options = options;
