@@ -108,9 +108,7 @@ export default class SpotifyStrategy {
     const OGURI: string = ctx.request.url.search;
 
     if (OGURI.includes('error')) {
-      //////////////////////////////////////////////////////
-      // do error handling
-      console.log('broke the code again');
+      return new Error('ERROR in getAuthToken: Received an error from auth token code request.');
     }
 
     // EXTRACT THE AUTH CODE
