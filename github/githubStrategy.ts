@@ -50,7 +50,7 @@ export default class GitHubStrategy {
       paramString += (value + '&');
     }
 
-    // removes the '&' we just placed at the end of the string
+    // removes the '&' that was just placed at the end of the string
     if (paramString[paramString.length - 1] === '&') {
       paramString = paramString.slice(0, -1);
     }
