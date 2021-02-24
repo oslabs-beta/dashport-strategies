@@ -58,8 +58,7 @@ export default class LinkedInStrategy {
     const OGURI: string = ctx.request.url.search;
 
     if (OGURI.includes('error')) {
-      ////////////////////////
-      console.log('broke the code again');
+      return new Error('ERROR in getAuthToken: Received an error from auth token code request.');
     }
 
     let URI1: string[] = OGURI.split('=');
