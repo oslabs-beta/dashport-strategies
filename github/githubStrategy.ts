@@ -88,7 +88,6 @@ export default class GitHubStrategy {
     // GO_Step 1 Request Permission
     if (!ctx.request.url.search) return await this.authorize(ctx, next);
     // GO_Step 3 Exchange code for Token
-    // ACTION REQUIRED: verify that a successful response from getAuthToken includes 'code' in the location specified below
     if (ctx.request.url.search.slice(1, 5) === 'code') return this.getAuthToken(ctx, next)
   };
 
@@ -118,7 +117,6 @@ export default class GitHubStrategy {
     const code: string = this.parseCode(URI2[0]);
 
     // STEP 3.5
-    // ACTION REQUIRED: add or remove the parameters needed to send as response to token request
     const tokenOptions: Options = {
       client_id: this.options.client_id,
       client_secret: this.options.client_secret,
