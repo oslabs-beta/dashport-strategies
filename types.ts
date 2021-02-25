@@ -56,7 +56,11 @@ export interface Options {
  */
 export interface TokenData {
   access_token: string;
-  [options: string]: string;
+  expires_in?: number;
+  scope?: string;
+  token_type?: string;
+  id_token?: string;
+  refresh_token?: string;
 }
 
 /**
