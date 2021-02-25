@@ -1,2 +1,2 @@
-# dashport-googlestrategy
-Google Strategy for the Dashport Deno Module
+# dashport-strategies
+Library for strategy modules for Deno [Dashport](https://github.com/oslabs-beta/dashport) module
